@@ -1,194 +1,289 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-:root {
-  --moderate-violet: hsl(263, 55%, 52%);
-  --very-dark-grayish-blue: hsl(217, 19%, 35%);
-  --very-dark-blackish-blue: hsl(219, 29%, 14%);
-  --white: hsl(0, 0%, 100%);
-  --light-gray: hsl(0, 0%, 81%);
-  --light-grayish-blue: hsl(210, 46%, 95%);
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  min-block-size: 100vb;
-  align-content: center;
-
-  font-family: "Barlow Semi Condensed", serif;
-  font-size: .8125rem;
-  font-weight: 500;
-
-  background-color: var(--light-grayish-blue);
+    font-family: "Barlow Semi Condensed", serif;
+    font-size: .8125rem;
+    font-weight: 500;
 }
 
-main {
-  margin-inline: auto;
-  margin-block: 5rem;
-  inline-size: min(88%, 70rem);
-
-  container: main / inline-size;
-}
-
-.testimonials {
+.testimonials-grid-layout {
   display: grid;
-  gap: 1.5rem 1.875rem;
+  grid-template-columns: 3fr 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  align-items: stretch;
 }
 
+/* Left side: grid for 4 cards */
+.left-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-rows: minmax(150px, auto);
+  gap: 20px;
+}
+
+/* Shared card styles */
 .card {
+  padding: 20px;
   border-radius: 10px;
-  box-shadow: 12px 35px 97px -55px rgba(0,0,0,0.55);
-  padding: 1.6rem 2rem;
-  color: var(--white);
-
-  display: flex;
-  flex-flow: column;
-  gap: 1rem;
+  font-family: sans-serif;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-.card header {
-  display: flex;
-  gap: 1rem;
-}
-
-.card header img {
-  inline-size: 2rem;
-  border-radius: 50%;
-  border: 2px solid;
-}
-
-.card header .identity {
-  display: flex;
-  flex-flow: column;
-  justify-content: space-between;
-}
-
-.name {
-  font-size: .85rem;
-  font-weight: 500;
-  letter-spacing: .2px;
-}
-
-.role {
-  opacity: 50%;
-  font-size: .75rem;
-  letter-spacing: .2px;
-}
-
-.highlight {
-  font-size: 1.2rem;
-  font-weight: 600;
-  letter-spacing: .5px;
-}
-
-.review {
-  opacity: 60%;
-  letter-spacing: .3px;
-  line-height: 1.3;
-}
-
+/* Individual card styles */
 .card-1 {
-  background-color: var(--moderate-violet);
-  background-image: url('./assets/images/bg-pattern-quotation.svg');
-  background-repeat: no-repeat;
-  background-position: 90% 0;
+  background-color: #733fc8;
+  color: white;
+  grid-column: span 2;
 }
 
-.card-1 header img {
-  border-color: #A775F1;
+.card-1 .image-container{
+    display: flex;
+    padding: 10px;
 }
+
+.card-1 .image-container .image{
+    padding: 10px;
+}
+
+.card-1 .image-container .image img{
+    border:#48556a 2px solid;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.card-1 .image-container .image-description {
+    padding: 15px;
+}
+
+.card-1 .image-container .image-description p {
+    font-size: 12px;
+    color: hsl(0, 0%, 100%);
+}
+
+.card-1 .image-container .image-description .quote img{
+    z-index: -1;
+}
+
+.card-1 .description {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.card-1 .testimonial {
+    font-size: 14px;
+    padding: 10px;
+}
+
 
 .card-2 {
-  background-color: var(--very-dark-grayish-blue);
+  background-color: #48556a;
+  color: white;
+  grid-column: 3 / 4;
 }
 
-.card-2 header img {
-  border-color: var(--very-dark-grayish-blue);
+.card-2 .image-container{
+    display: flex;
+    padding: 10px;
+}
+
+.card-2 .image-container .image{
+    padding: 10px;
+}
+
+.card-2 .image-container .image img{
+    border:#48556a 2px solid;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.card-2 .image-container .image-description {
+    padding: 15px;
+}
+
+.card-2 .image-container .image-description p {
+    font-size: 12px;
+    color: hsl(0, 0%, 81%);
+}
+
+.card-2 .description {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.card-2 .testimonial {
+    font-size: 14px;
+    padding: 10px;
+    color: hsl(0, 0%, 81%);
 }
 
 .card-3 {
-  background-color: var(--white);
-  color: var(--very-dark-grayish-blue);
+  background-color: #ffffff;
+  color: hsl(0, 0%, 7%);
+  grid-column: 1 / 2;
 }
 
-.card-3 .review {
-  color: var(--very-dark-blackish-blue);
+.card-3 .image-container{
+    display: flex;
+    padding: 10px;
 }
 
-.card-3 header img {
-  border-color: var(--white);
+.card-3 .image-container .image{
+    padding: 10px;
+}
+
+.card-3 .image-container .image img{
+    border:#48556a 2px solid;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.card-3 .image-container .image-description {
+    padding: 15px;
+}
+
+.card-3 .image-container .image-description p {
+    font-size: 12px;
+}
+
+.card-3 .description {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.card-3 .testimonial {
+    font-size: 14px;
+    padding: 10px;
 }
 
 .card-4 {
-  background-color: var(--very-dark-blackish-blue);
+  background-color: #19202d;
+  color: white;
+  grid-column: 2 / 4;
 }
 
-.card-4 header img {
-  border-color: var(--moderate-violet);
+.card-4 .image-container{
+    display: flex;
+    padding: 10px;
 }
 
+.card-4 .image-container .image{
+    padding: 10px;
+}
+
+.card-4 .image-container .image img{
+    border:#48556a 2px solid;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.card-4 .image-container .image-description {
+    padding: 15px;
+}
+
+.card-4 .image-container .image-description p {
+    font-size: 12px;
+}
+
+.card-4 .description {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.card-4 .testimonial {
+    font-size: 14px;
+    padding: 10px;
+}
+
+
+/* Tall right card */
 .card-5 {
-  background-color: var(--white);
-  color: var(--very-dark-grayish-blue);
+  background-color: #ffffff;
+  color: #333;
+  height: 100%;
 }
 
-.card-5 .review {
-  color: var(--very-dark-blackish-blue);
+.card-5 .image-container{
+    display: flex;
+    padding: 10px;
 }
 
-.card-5 header img {
-  border-color: var(--white);
+.card-5 .image-container .image{
+    padding: 10px;
 }
 
-
-@container main (min-inline-size: 33rem) {
-  .testimonials {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-areas:
-      "card-1   card-1"
-      "card-2   card-3"
-      "card-4   card-4"
-      "card-5   card-5";
-  }
-
-  .card-1 {
-    grid-area: card-1;
-  }
-
-  .card-2 {
-    grid-area: card-2;
-  }
-
-  .card-3 {
-    grid-area: card-3;
-  }
-
-  .card-4 {
-    grid-area: card-4;
-  }
-
-  .card-5 {
-    grid-area: card-5;
-  }
+.card-5 .image-container .image img{
+    border:#48556a 2px solid;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
 
-@container main (min-inline-size: 50rem) {
-  .testimonials {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas:
-      "card-1 card-1 card-2"
-      "card-3 card-4 card-4"
-      "card-5 card-5 card-5";
-  }
+.card-5 .image-container .image-description {
+    padding: 15px;
 }
 
-@container main (min-inline-size: 65rem) {
-  .testimonials {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-areas:
-      "card-1 card-1 card-2 card-5"
-      "card-3 card-4 card-4 card-5";
-  }
+.card-5 .image-container .image-description p {
+    font-size: 12px;
+}
+
+.card-5 .description {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.card-5 .testimonial {
+    font-size: 14px;
+    padding: 10px;
+}
+
+/* Special tweaks for colored cards */
+.card-1 .image-description p,
+.card-2 .image-description p,
+.card-4 .image-description p {
+    color: hsl(0, 0%, 81%);
+}
+
+.card-1 .testimonial {
+    color: white;
+}
+
+.card-2 .testimonial {
+    color: hsl(0, 0%, 81%);
+}
+
+.card-4 .testimonial {
+    color: white;
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 1024px) {
+    .testimonials-grid-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .card-5 {
+        order: 5;
+    }
+}
+
+@media (max-width: 600px) {
+    .left-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-1,
+    .card-4 {
+        grid-column: span 1 !important;
+    }
 }
